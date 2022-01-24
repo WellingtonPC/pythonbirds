@@ -35,14 +35,14 @@ class Carro:
 
 
     def acelerar(self):
-        self.motor.acelerar()
+        return self.motor.acelerar()
 
 
     def frear(self):
-        self.motor.frear()
+        return self.motor.frear()
 
 
-    def sendito(self):
+    def sentido(self):
         return self.direcao.sentido
 
 
@@ -75,6 +75,7 @@ class Motor:
 
 
 class Direcao:
+
     direcoes_possiveis = ('Norte', 'Leste', 'Sul', 'Oeste')
 
     def __init__(self, sentido='Norte'):
@@ -101,7 +102,6 @@ class Direcao:
 if __name__ == '__main__':
 
     #Teste classe Direção
-    """
     m = Motor()
     print(m.acelerar())
     print(m.acelerar())
@@ -123,9 +123,27 @@ if __name__ == '__main__':
     for item in range(5):
         d.virar_a_esquerda()
         print(d.direcoes_possiveis, 'Esquerda', d.sentido)
-    """
 
     carro = Carro(Direcao(), Motor())
-    print(carro.calcular_velocidade)
+    print(carro.calcular_velocidade())
     carro.acelerar()
+    print(carro.calcular_velocidade())
+    carro.acelerar()
+    print(carro.calcular_velocidade())
+    carro.acelerar()
+    print(carro.calcular_velocidade())
     carro.frear()
+    print(carro.calcular_velocidade())
+    carro.frear()
+    print(carro.calcular_velocidade())
+
+    print(carro.sentido())
+    carro.virar_a_direita()
+    print(carro.sentido())
+    carro.virar_a_direita()
+    print(carro.sentido())
+    carro.virar_a_direita()
+    print(carro.sentido())
+    carro.virar_a_direita()
+    print(carro.sentido())
+    
