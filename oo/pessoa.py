@@ -8,9 +8,19 @@ class Pessoa:
         self.idade = idade
         self.filhos = list(filhos)
 
-
     def cumprimentar(self):
         return f'Oi! {id(self)}'
+
+
+    #Método de classe usando o decorator @staticmethod
+    @staticmethod
+    def metodo_estatico():
+        return 42
+
+    #Método de classe usando o decorator @staticmethod
+    @classmethod
+    def get_nome_atributos_de_classe(cls):
+        return f'Nome da classe: {cls} - Olhos: {cls.olhos}'
 
 if __name__ == '__main__':
     joaquim = Pessoa(nome='Joaquim')
@@ -33,3 +43,5 @@ if __name__ == '__main__':
     print(lucioano.olhos)
     print(joaquim.olhos)
     print(id(Pessoa.olhos), id(lucioano.olhos), id(joaquim.olhos))
+    print(Pessoa.metodo_estatico(), lucioano.metodo_estatico())
+    print(Pessoa.get_nome_atributos_de_classe(), lucioano.get_nome_atributos_de_classe())
