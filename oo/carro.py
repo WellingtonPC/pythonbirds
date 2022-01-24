@@ -16,33 +16,70 @@ Composição:
     3 - Método virar a esquerda 
     Obs. Norte (Cima), Sul (Baixo), Leste(Esquerda), Oeste(Direita)
 
-"""
 
 """
-Estudo de composição
-"""
+
+
+#Estudo de composição
+
 
 class Carro:
-    pass
+
+    def __init__(self, direcao, motor):
+        self.direcao = direcao
+        self.motor = motor
+    
+
+    def calcular_velocidade(self):
+        return self.motor.velocidade
+
+
+    def acelerar(self):
+        self.motor.acelerar()
+
+
+    def frear(self):
+        self.motor.frear()
+
+
+    def sendito(self):
+        return self.direcao.sentido
+
+
+    def virar_a_direita(self):
+        return self.direcao.virar_a_direita()
+
+
+    def virar_a_esquerda(self):
+        return self.direcao.virar_a_esquerda()
+
 
 class Motor:
-    def __init_(self):
+
+    def __init__(self):
         self.velocidade = 0
+
 
     def acelerar(self):
         self.velocidade += 1
+        return f'Acelerando. Velocidade: {self.velocidade}'
+
 
     def frear(self):
-        self.velocidade -= 1
+        self.velocidade -= 2
 
         if self.velocidade < 0:
             self.velocidade = 0
 
+        return f'Freando. Velocidade atual: {self.velocidade}'
+
+
 class Direcao:
     direcoes_possiveis = ('Norte', 'Leste', 'Sul', 'Oeste')
 
-    def __init__(self):
-        self.sentido = 'Norte'
+    def __init__(self, sentido='Norte'):
+        self.sentido = sentido
+
 
     def virar_a_direita(self):
         indice = self.direcoes_possiveis.index(self.sentido) 
@@ -61,16 +98,34 @@ class Direcao:
             self.sentido = self.direcoes_possiveis[indice - 1]
 
 
-if __name__ == '__name__':
+if __name__ == '__main__':
 
+    #Teste classe Direção
+    """
+    m = Motor()
+    print(m.acelerar())
+    print(m.acelerar())
+    print(m.acelerar())
+    print(m.frear())
+    print(m.frear())
+    print(m.frear())
+
+
+    #Teste classe Direção
+    
     d = Direcao()
 
     print(d.direcoes_possiveis, d.sentido)
     for item in range(5):
         d.virar_a_direita()
-        print(d.direcoes_possiveis, 'Direita', d.sentido)
+        print(d.direcoes_possiveis, 'Direita ', d.sentido)
 
     for item in range(5):
         d.virar_a_esquerda()
         print(d.direcoes_possiveis, 'Esquerda', d.sentido)
+    """
 
+    carro = Carro(Direcao(), Motor())
+    print(carro.calcular_velocidade)
+    carro.acelerar()
+    carro.frear()
