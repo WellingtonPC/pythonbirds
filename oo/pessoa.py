@@ -32,6 +32,7 @@ if __name__ == '__main__':
     for filho in lucioano.filhos:
         print(f'Filho: {filho.nome}')
 
+    print(1)
     lucioano.sobrenome = 'Ramalho'
     del lucioano.filhos
     lucioano.olhos = 1
